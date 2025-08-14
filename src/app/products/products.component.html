@@ -1,0 +1,49 @@
+<div class="p-3">
+  <div class="card col-md-10 offset-1">
+    <div class="card-header">Products Component</div>
+    <div class="card-body">
+      <div class="body p-3">
+        <input type="text" class="p-1" [(ngModel)]="keyword" />
+        <button class="btn btn-outline-success ms-1" (click)="getProduct()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <table class="table">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Checked</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>
+              <button class="btn btn-outline-success" (click)="change(p)">
+                <i [class]="p.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-outline-danger" (click)="deleteProduct(p)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="nav nav-pills">
+        <li *ngFor="let page of [].constructor(totalPages); let i = index">
+          <button
+          [ngClass]="currentPage == i+1?'btn btn-success ms-1':'btn btn-outline-success ms-1'"
+            (click)="gotoPage(i + 1)"
+            
+          >
+            {{ i + 1 }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

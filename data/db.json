@@ -1,0 +1,190 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "computer",
+      "price": 5000,
+      "checked": false
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 2
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 3
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 4
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 5
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 6
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 7
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 8
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 11
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 12
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 13
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 14
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 15
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 16
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 17
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 18
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 19
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 20
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 21
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 22
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 23
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 24
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 25
+    },
+    {
+      "name": "computer",
+      "price": "5200",
+      "checked": true,
+      "id": 26
+    },
+    {
+      "name": "server",
+      "price": "5200",
+      "checked": true,
+      "id": 27
+    },
+    {
+      "name": "router",
+      "price": "5200",
+      "checked": true,
+      "id": 28
+    },
+    {
+      "name": "printer",
+      "price": "5200",
+      "checked": true,
+      "id": 29
+    },
+    {
+      "name": "mouse",
+      "price": "5200",
+      "checked": true,
+      "id": 30
+    },
+    {
+      "name": "mouse",
+      "price": "5200",
+      "checked": true,
+      "id": 31
+    }
+  ]
+}
