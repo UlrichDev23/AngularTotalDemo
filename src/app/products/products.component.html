@@ -3,7 +3,11 @@
     <div class="card-header">Products Component</div>
     <div class="card-body">
       <div class="body p-3">
-        <input type="text" class="p-1" [(ngModel)]="keyword" />
+        <input
+          type="text"
+          class="p-1"
+          [(ngModel)]="this.appState.productsState.keyword"
+        />
         <button class="btn btn-outline-success ms-1" (click)="getProduct()">
           <i class="bi bi-search"></i>
         </button>
@@ -16,29 +20,42 @@
           <th>Checked</th>
         </thead>
         <tbody>
-          <tr *ngFor="let p of products">
+          <tr *ngFor="let p of this.appState.productsState.products">
             <td>{{ p.id }}</td>
             <td>{{ p.name }}</td>
             <td>{{ p.price }}</td>
-            <td>
+            <td *ngIf="appState.authState.roles.includes('ADMIN')">
               <button class="btn btn-outline-success" (click)="change(p)">
                 <i [class]="p.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
               </button>
             </td>
-            <td>
+            <td *ngIf="appState.authState.roles.includes('ADMIN')">
               <button class="btn btn-outline-danger" (click)="deleteProduct(p)">
                 <i class="bi bi-trash"></i>
+              </button>
+            </td>
+            <td *ngIf="appState.authState.roles.includes('ADMIN')">
+              <button class="btn btn-outline-danger" (click)="editProduct(p)">
+                <i class="bi bi-pencil"></i>
               </button>
             </td>
           </tr>
         </tbody>
       </table>
       <ul class="nav nav-pills">
-        <li *ngFor="let page of [].constructor(totalPages); let i = index">
+        <li
+          *ngFor="
+            let page of [].constructor(this.appState.productsState.totalPages);
+            let i = index
+          "
+        >
           <button
-          [ngClass]="currentPage == i+1?'btn btn-success ms-1':'btn btn-outline-success ms-1'"
+            [ngClass]="
+              this.appState.productsState.currentPage == i + 1
+                ? 'btn btn-success ms-1'
+                : 'btn btn-outline-success ms-1'
+            "
             (click)="gotoPage(i + 1)"
-            
           >
             {{ i + 1 }}
           </button>

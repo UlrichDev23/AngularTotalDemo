@@ -1,4 +1,24 @@
 {
+  "users": [
+    {
+      "id": "user1",
+      "password": "MTIzNA==",
+      "roles": ["USER"],
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc1NjU5MDc2NiwiZXhwIjoxNzU2NTk0MzY2LCJyb2xlcyI6WyJVU0VSIl19.mzgDgIVszdG056TZNg9AhxT1LlgPSm63VL0HMBPBDMI"
+    },
+    {
+      "id": "user2",
+      "password": "MTIzNA==",
+      "roles": ["USER"],
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsImlhdCI6MTc1NjU5MDc2NiwiZXhwIjoxNzU2NTk0MzY2LCJyb2xlcyI6WyJVU0VSIl19.uIa6gs9oOcs6-0F5-LW2qqceqqNw14BSnK9JYEL-SQs"
+    },
+    {
+      "id": "admin",
+      "password": "MTIzNA==",
+      "roles": ["USER", "ADMIN"],
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NjU5MDc2NiwiZXhwIjoxNzU2NTk0MzY2LCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iXX0.iiBrskQPuuN4w1nMoJKXXSHwgb5sY7JCazHAOaEwv8c"
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -7,9 +27,12 @@
       "checked": false
     },
     {
-      "name": "computer",
-      "price": "5200",
-      "checked": true,
+      "product": {
+        "id": "2",
+        "name": "computer",
+        "price": "6000",
+        "checked": true
+      },
       "id": 2
     },
     {
@@ -23,18 +46,6 @@
       "price": "5200",
       "checked": true,
       "id": 4
-    },
-    {
-      "name": "computer",
-      "price": "5200",
-      "checked": true,
-      "id": 5
-    },
-    {
-      "name": "computer",
-      "price": "5200",
-      "checked": true,
-      "id": 6
     },
     {
       "name": "computer",

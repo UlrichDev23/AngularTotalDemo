@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../model/product.model';
+import { Router } from '@angular/router';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-products',
@@ -9,30 +11,50 @@ import { Product } from '../model/product.model';
   styleUrl: './products.component.css',
 })
 export class ProductsComponent implements OnInit {
-  public products: Array<Product> = [];
-  public keyword:String="";
-  totalPages:number=0
-  totalSize:number=4
-  currentPage:number=1
-
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    public appState: AppStateService
+  ) {}
 
   ngOnInit(): void {
     this.getProduct();
   }
 
   getProduct() {
-    this.productService.getProduct(this.keyword,this.currentPage,this.totalSize).subscribe({
-      next: (res) => {
-        
-        this.products = res.body as Product[]
-       const totalProducts=Number(res.headers.get('X-Total-Count'));
-       this.totalPages = Math.ceil(totalProducts/this.totalSize)
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    /*this.appState.setProductsState({
+      status: 'LOADING',
+    });*/
+    this.productService
+      .getProduct(
+        this.appState.productsState.keyword,
+        this.appState.productsState.currentPage,
+        this.appState.productsState.totalSize
+      )
+      .subscribe({
+        next: (res) => {
+          let products = res.body as Product[];
+          const totalProducts = Number(res.headers.get('X-Total-Count'));
+          //this.appState.productsState.totalProducts = totalProducts;
+          let totalPages = Math.ceil(
+            totalProducts / this.appState.productsState.totalSize
+          );
+
+          this.appState.setProductsState({
+            products: products,
+            totalProducts: totalProducts,
+            totalPages: totalPages,
+            status: 'LOADED',
+          });
+        },
+        error: (err) => {
+          this.appState.setProductsState({
+            status: 'error',
+            errorMessage: err,
+          });
+          console.log(err);
+        },
+      });
   }
 
   change(p: Product) {
@@ -46,7 +68,8 @@ export class ProductsComponent implements OnInit {
   deleteProduct(product: Product) {
     this.productService.deleteProduct(product).subscribe({
       next: (value) => {
-        this.products = this.products.filter((p) => p.id != product.id);
+        //this.appState.productsState.products = this.appState.productsState.products.filter((p:any) => p.id != product.id);
+        this.getProduct();
       },
     });
   }
@@ -57,8 +80,12 @@ export class ProductsComponent implements OnInit {
     })
   }*/
 
-  gotoPage(page:number){
-    this.currentPage = page
+  gotoPage(page: number) {
+    this.appState.productsState.currentPage = page;
     this.getProduct();
+  }
+
+  editProduct(product: Product) {
+    this.router.navigate(['/admin/editProduct', product.id]);
   }
 }
